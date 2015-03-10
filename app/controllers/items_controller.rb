@@ -4,13 +4,16 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
-    if params[:search]
-      @items = Item.search(params[:search]).order("created_at DESC")
+    @item = Item.all
+    if params[:item_type]
+      puts "inside if statement: params is #{params} the class is #{params.class}"
+      @items = Item.search(params).order("created_at DESC")
     else
+      puts "shit"
       @items = Item.all.order("created_at DESC")
     end
   end
+
 
   # GET /items/1
   # GET /items/1.json

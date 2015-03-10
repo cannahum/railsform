@@ -1,4 +1,4 @@
-<%= form_tag(search_items_path, :method => "get", id: "search-form") do %>
+<%= form_tag(items_path, :method => "get", id: "search-form") do %>
 
   <div>
     <h2>Search for Items: Please fill out as much as possible</h2>
@@ -6,20 +6,20 @@
 
   <div class="field">
       <h3>Search by Title:</h3>
-      <%= text_field_tag :search, params[:search] %>
+      <%= text_field_tag :title, params[:title] %>
   </div>
 
   <div class="field">
       <h3>Search by Description:</h3>
-      <%= text_field_tag :search, params[:search] %>
+      <%= text_field_tag :description, params[:description] %>
   </div>
 
   <div class="field">
-      <%= select_tag(:item_type, options_for_select(['All Types', 'Book', 'Clothing', 'Cellphone', 'Computer'], 0)) %>
+      <%= select_tag(:item_type, options_for_select(['All Types', 'Book', 'Clothing', 'Cellphone', 'Computer'])) %>
   </div>
 
   <div class="field">
-      <%= submit_tag "Search" %>
+      <%= submit_tag "Search"%>
   </div>
 
 <% end %>
