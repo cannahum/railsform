@@ -6,10 +6,8 @@ class ItemsController < ApplicationController
   def index
     @item = Item.all
     if params[:item_type]
-      puts "inside if statement: params is #{params} the class is #{params.class}"
       @items = Item.search(params).order("created_at DESC")
     else
-      puts "shit"
       @items = Item.all.order("created_at DESC")
     end
   end
