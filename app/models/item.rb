@@ -1,8 +1,9 @@
 class Item < ActiveRecord::Base
 
 	def self.search(params)
+		
 		if params[:item_type] != "All Types"
-			Item.where("title LIKE ? OR description LIKE ? WHERE item_type LIKE ?", "%#{params[:title]}%", "%#{params[:description]}%", "%#{params[:item_type]}")
+			Item.where("item_type LIKE ?", "%#{params[:item_type]}").where("title LIKE ? OR description LIKE ?", "%#{params[:title]}%", "%#{params[:description]}%")
 		else
 			Item.where("title LIKE ? OR description LIKE ?", "%#{params[:title]}%", "%#{params[:description]}%")
 		end
