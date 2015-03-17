@@ -1,0 +1,25 @@
+/*
+// Place all the styles related to the Items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+*/
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+#field {
+	font_size: 3em;
+	text_align: center;
+
+}
+
+.h2 {
+  font-size: 3.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #777;
+
+}

@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @item = Item.all
-    if params[:item_type]
+    if params[:type_id]
       @items = Item.search(params).order("created_at DESC")
     else
       @items = Item.all.order("created_at DESC")

@@ -11,8 +11,13 @@
 </p>
 
 <p>
-  <strong>Type:</strong>
-  <%= @item.item_type %>
+  <strong>Owner:</strong>
+  <%= @item.owner %>
+</p>
+
+<p>
+	<strong>Type:</strong>
+	<%= Type.find(@item.type_id).title %>
 </p>
 
 <%= link_to 'Edit', edit_item_path(@item) %> |

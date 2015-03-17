@@ -1,25 +1,27 @@
+<!DOCTYPE HTML>
 <%= form_tag(items_path, :method => "get", id: "search-form") do %>
-
+  <% render 'layouts/header' %>
   <div>
     <h2>Search for Items: Please fill out as much as possible</h2>
   </div>
 
   <div class="field">
-      <h3>Search by Title:</h3>
-      <%= text_field_tag :title, params[:title] %>
+      <h3>Search by KeyWord:
+      <%= text_field_tag :keyword, params[:keyword] , id: "field" %></h3>
   </div>
 
-  <div class="field">
-      <h3>Search by Description:</h3>
-      <%= text_field_tag :description, params[:description] %>
+   <div class="field">
+      <h3><%= select_tag(:predicate, options_for_select(['AND', 'OR'], 0)) %></h3>
   </div>
 
-  <div class="field">
-      <%= select_tag(:item_type, options_for_select(['All Types', 'Book', 'Clothing', 'Cellphone', 'Computer'])) %>
-  </div>
 
   <div class="field">
-      <%= submit_tag "Search"%>
+      <h3>Search by Type: 
+        <%= select_tag(:type_id, options_for_select([
+          ['All Types', 0], ['Computer', 1], ['Cellphone', 2], ['Clothing', 3], ['Book', 4]
+          ], 0)) %></h3>
   </div>
+
+  <h3><%= submit_tag "Search",  :class => 'executable'%></h3>
 
 <% end %>
